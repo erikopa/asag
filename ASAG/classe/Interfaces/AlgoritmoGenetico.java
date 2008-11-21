@@ -7,19 +7,8 @@ package Interfaces;
  */
 public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
 
-	/**
-	 * 
-	 * @param taxaSobrevivencia
-	 * @param taxaMutacao
-	 * @param taxaCruzamento
-	 * @param tamanhoPopulacao
-	 * @param tamanhoCromossomo
-	 * @param numGeracao
-	 * @param metodoSelecao
-	 * @param criterioParada
-	 */
-	public void AlgoritmoGenetico(int taxaSobrevivencia, double taxaMutacao, double taxaCruzamento, int tamanhoPopulacao, int tamanhoCromossomo, int numGeracao, String metodoSelecao, String criterioParada);
-
+	
+	
 	/**
 	 * Indica o Critério para a parada da execução do AG
 	 * 
@@ -27,13 +16,7 @@ public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
 	 */
 	public void setCriterioParada(String criterioParada);
 
-	/**
-	 * 
-	 * @param tipoFitness
-	 * @param fitness
-	 */
-	public void setFitness(String tipoFitness, int fitness);
-
+	
 	/**
 	 * Seleciona o Método de Seleção
 	 * 
@@ -75,8 +58,27 @@ public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
 	 * Percentual de Individuos da População que passar
          * para a proxima Geração
 	 * 
-	 * @param taxaSobrevivencia
+	 * @param taxaSelecao
 	 */
-	public void setTaxaSobrevivencia(int taxaSobrevivencia);
+	public void setTaxaSelecao(int taxaSelecao);
+        
+        /**
+         * 
+         * @param classecromossomo 
+         */
+        public void setClasseCromossomo(String classecromossomo);
+        
+        /**
+         * 
+         * @param classefitness
+         */
+        public void setClasseFitness(String classefitness);
+        
+        /**
+         * 
+         * @param taxaElitismo
+         */
+        public void setElitismo(double taxaElitismo);
+        
 
 }

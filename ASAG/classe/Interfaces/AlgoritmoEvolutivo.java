@@ -7,8 +7,14 @@ package Interfaces;
  */
 public interface AlgoritmoEvolutivo {
 
-	public void configurar();
+    /**
+     * 
+     */
+    public void configurar();
 
-	public void iniciarProcesso();
+        /**
+         * 
+         */
+        public void iniciarProcesso();
 
 }

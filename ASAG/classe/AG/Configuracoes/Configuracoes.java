@@ -11,87 +11,97 @@ import Interfaces.CromossomoAbstrato;
 
 /**
  *
- * @author JOÃO BOULHOSA
+ * @author Eriko Verissimo
  */
 public class Configuracoes extends Object implements Cloneable{
 
+    private CromossomoAbstrato mascara;
     private int tamanhoPopulacao;
     private int tamanhoCromossomo;
+    private int[] pontosCorte;
     private double taxaCruzamento;
     private double taxaMutacao;
-    private int tipoCruzamento;
-    private int tipoMutacao;
-    private int pontoCorte;
-    private int qntPontosCorte;
-    private CromossomoAbstrato mascara;
-    private int[] pontosCorte;
-
+    private String tipoCruzamento;
+    private String tipoMutacao;
+    private String classeCromossomo;
+    private String classeFitness;
+    
+    
+    
+    
+    /**
+     * 
+     * @return
+     */
     public int[] getDoisPontosCorte() {
         return pontosCorte;
     }
 
-    public void setDoisPontosCorte(int pontoCorte1,int pontoCorte2) {
+    /**
+     * 
+     * @param pontosCorte 
+     */
+    public void setDoisPontosCorte(int[] pontosCorte) {
         this.pontosCorte = new int[2];
-        this.pontosCorte[0] = pontoCorte1;
-        this.pontosCorte[1] = pontoCorte2;
+        this.pontosCorte[0] = pontosCorte[0];
+        this.pontosCorte[1] = pontosCorte[1];
     }
-
-    public CromossomoAbstrato getMascara() {
-        return mascara;
-    }
-
-    public void setMascara(CromossomoAbstrato mascara) {
-        this.mascara = mascara;
-    }
-    private String classeCromossomo;
-
-    public String getClasseCromossomo() {
-        return classeCromossomo;
-    }
-
-    public void setClasseCromossomo(String classeCromossomo) {
-        this.classeCromossomo = classeCromossomo;
-    }
-
-    public String getClasseFitness() {
-        return classeFitness;
-    }
-
-    public void setClasseFitness(String classeFitness) {
-        this.classeFitness = classeFitness;
-    }
-    private String classeFitness;
 
     /**
      * 
      * @return
      */
-    public int getPontoCorte() {
-        return pontoCorte;
+    public CromossomoAbstrato getMascara() {
+        return mascara;
     }
 
     /**
      * 
-     * @param pontoCorte
+     * @param mascara
      */
-    public void setPontoCorte(int pontoCorte) {
-        this.pontoCorte = pontoCorte;
+    public void setMascara(CromossomoAbstrato mascara) {
+        this.mascara = mascara;
     }
 
+    /**
+     * 
+     * @return
+     */
+    public String getClasseCromossomo() {
+        return classeCromossomo;
+    }
+
+    /**
+     * 
+     * @param classeCromossomo
+     */
+    public void setClasseCromossomo(String classeCromossomo) {
+        this.classeCromossomo = classeCromossomo;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getClasseFitness() {
+        return classeFitness;
+    }
+
+    /**
+     * 
+     * @param classeFitness
+     */
+    public void setClasseFitness(String classeFitness) {
+        this.classeFitness = classeFitness;
+    }
+
+    
     /**
      * 
      * @return
      */
     public int getQntPontosCorte() {
-        return qntPontosCorte;
-    }
-
-    /**
-     * 
-     * @param qntPontosCorte
-     */
-    public void setQntPontosCorte(int qntPontosCorte) {
-        this.qntPontosCorte = qntPontosCorte;
+        return pontosCorte.length;
     }
 
     /**
@@ -162,7 +172,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @return
      */
-    public int getTipoCruzamento() {
+    public String getTipoCruzamento() {
         return tipoCruzamento;
     }
 
@@ -170,7 +180,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @param tipoCruzamento
      */
-    public void setTipoCruzamento(int tipoCruzamento) {
+    public void setTipoCruzamento(String tipoCruzamento) {
         this.tipoCruzamento = tipoCruzamento;
     }
 
@@ -178,7 +188,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @return
      */
-    public int getTipoMutacao() {
+    public String getTipoMutacao() {
         return tipoMutacao;
     }
 
@@ -186,7 +196,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @param tipoMutacao
      */
-    public void setTipoMutacao(int tipoMutacao) {
+    public void setTipoMutacao(String tipoMutacao) {
         this.tipoMutacao = tipoMutacao;
     }
     

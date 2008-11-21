@@ -5,63 +5,110 @@
 
 package AG;
 
+import AG.Configuracoes.Configuracoes;
+
 /**
  *
  * @author Eriko Verissimo
  */
 public class AlgoritmoGenetico implements Interfaces.AlgoritmoGenetico{
 
+    
+    private Configuracoes parametros;
+    /**
+     * 
+     */
     public AlgoritmoGenetico(){
+        this.parametros = new Configuracoes();
     }
     
-    public void AlgoritmoGenetico(int taxaSobrevivencia, double taxaMutacao, double taxaCruzamento, int tamanhoPopulacao, int tamanhoCromossomo, int numGeracao, String metodoSelecao, String criterioParada) {
-        throw new UnsupportedOperationException("Not supported yet.");
+
+    /**
+     * Reinicia os parâmetros, zerando todos os dados passados.
+     */
+    public void configurar() {
+        this.parametros = new Configuracoes();
     }
 
-     public void configurar() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    /**
+     * 
+     */
     public void iniciarProcesso() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-        
+    /**
+     * 
+     */ 
     public void setCriterioParada(String criterioParada) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    public void setFitness(String tipoFitness, int fitness) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    /**
+     * 
+     */
     public void setMetodoSelecao(String selecao) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    /**
+     * 
+     */
     public void setNumGeracoes(int numGeracoes) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    /**
+     * 
+     */
     public void setTamanhoCromossomo(int tamanhoCromossomo) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    /**
+     * 
+     */
     public void setTamanhoPopulacao(int tamanhoPopulacao) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    /**
+     * 
+     */
     public void setTaxaCruzamento(double taxaCruzamento) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    /**
+     * 
+     */
     public void setTaxaMutacao(double taxaMutacao) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    public void setTaxaSobrevivencia(int taxaSobrevivencia) {
+    /**
+     * 
+     * @param taxaSelecao 
+     */
+    public void setTaxaSelecao(double taxaSelecao) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    /**
+     * 
+     */
+    public void setClasseCromossomo(String classecromossomo) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    /**
+     * 
+     */
+    public void setClasseFitness(String classefitness) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    /**
+     * 
+     */
+    public void setElitismo(double taxaElitismo) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    public void setTaxaSelecao(int taxaSelecao) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    
    
 
 
