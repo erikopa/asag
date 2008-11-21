@@ -31,14 +31,10 @@ public class AGeneticoTeste {
         Configuracoes parametros = new Configuracoes();
         parametros.setClasseCromossomo("AG.Binario.CromossomoBinario");
         parametros.setClasseFitness("AG.Binario.FitnessBinario");
-        parametros.setQntPontosCorte(4);
         parametros.setTamanhoCromossomo(30);
         parametros.setTamanhoPopulacao(200);
         parametros.setTaxaCruzamento(0.5);
         parametros.setTaxaMutacao(0.6);
-        parametros.setTipoCruzamento(1);
-        parametros.setTipoMutacao(1);
-        parametros.setDoisPontosCorte(10, 28);
         parametros.setMascara(new CromossomoBinario(parametros.getTamanhoCromossomo()));
         FitnessBinario fitness = new FitnessBinario();
         Populacao<CromossomoBinario> populacao =  new Populacao<CromossomoBinario>(parametros,false);
@@ -73,7 +69,7 @@ public class AGeneticoTeste {
         
         while (true) {
 
-            if (populacao.get(populacao.size()-1).getFitness() == 0) {
+            if (populacao.get(0).getFitness() == 1) {
                 break;
             }
 
@@ -124,7 +120,7 @@ public class AGeneticoTeste {
             }
 
 
-            System.out.println("Cromossomo: " + populacao.get(populacao.size()-1).toString());
+            System.out.println("Cromossomo: " + populacao.get(0).toString());
         }
         System.out.println("Geração " + numGeracao);
 
