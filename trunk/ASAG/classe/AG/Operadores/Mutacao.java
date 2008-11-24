@@ -4,6 +4,7 @@
  */
 package AG.Operadores;
 
+import AG.Configuracoes.Configuracoes;
 import AG.Populacao.Populacao;
 import Interfaces.CromossomoAbstrato;
 import java.util.ArrayList;
@@ -13,6 +14,19 @@ import java.util.ArrayList;
  * @author Eriko Verissimo
  */
 public class Mutacao {
+
+    public static final int MUTARBINARIO = 0;
+    public static final int MUTARALFABETO = 1;
+
+    public static <T extends CromossomoAbstrato<T>> Populacao<T> Mutar(int metodoMutacao, Configuracoes parametros, Populacao<T> populacao) {
+
+        switch (metodoMutacao) {
+            case MUTARBINARIO : return MutarBinario(parametros.getTaxaMutacao(), populacao);
+            case MUTARALFABETO: return MutarAlfabeto(parametros.getTaxaMutacao(), parametros.getAlfabeto(),populacao);
+            default : return MutarBinario(parametros.getTaxaMutacao(), populacao);
+        
+        }
+    }
 
     /**
      * 
@@ -58,9 +72,9 @@ public class Mutacao {
             for (int j = 0; j < cromossomo.size(); j++) {
 
                 if (taxa >= (1 + Math.random() * 1000) / 1000) {
-                    letra = alfabeto.get((int)Math.random() * alfabeto.size());
+                    letra = alfabeto.get((int) Math.random() * alfabeto.size());
                     if (cromossomo.get(j) == letra) {
-                        cromossomo.setGene(j, alfabeto.get(alfabeto.indexOf(letra)+1));
+                        cromossomo.setGene(j, alfabeto.get(alfabeto.indexOf(letra) + 1));
                     } else {
                         cromossomo.setGene(j, letra);
                     }

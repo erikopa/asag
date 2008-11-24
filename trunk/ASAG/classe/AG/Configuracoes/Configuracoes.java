@@ -6,6 +6,7 @@
 package AG.Configuracoes;
 
 import Interfaces.CromossomoAbstrato;
+import java.util.ArrayList;
 
 
 
@@ -16,15 +17,21 @@ import Interfaces.CromossomoAbstrato;
 public class Configuracoes extends Object implements Cloneable{
 
     private CromossomoAbstrato mascara;
+    private ArrayList<Object> alfabeto;
     private int tamanhoPopulacao;
     private int tamanhoCromossomo;
+    private int tamanhoGrupoTorneio;
     private int[] pontosCorte;
     private double taxaCruzamento;
     private double taxaMutacao;
+    private double taxaSelecao;
+    private double taxaElitismo;
     private String tipoCruzamento;
     private String tipoMutacao;
+    private String tipoSelecao;
     private String classeCromossomo;
     private String classeFitness;
+
     
     
     
@@ -33,18 +40,99 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @return
      */
-    public int[] getDoisPontosCorte() {
-        return pontosCorte;
+    public int getTamanhoGrupoTorneio() {
+        return tamanhoGrupoTorneio;
+    }
+
+    /**
+     * 
+     * @param tamanhoGrupoTorneio
+     */
+    public void setTamanhoGrupoTorneio(int tamanhoGrupoTorneio) {
+        this.tamanhoGrupoTorneio = tamanhoGrupoTorneio;
+    }
+    
+    
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<Object> getAlfabeto() {
+        return alfabeto;
+    }
+
+    /**
+     * 
+     * @param alfabeto
+     */
+    public void setAlfabeto(ArrayList<Object> alfabeto) {
+        this.alfabeto = alfabeto;
+    }
+
+    
+    /**
+     * 
+     * @return
+     */
+    public double getTaxaElitismo() {
+        return taxaElitismo;
+    }
+
+    /**
+     * 
+     * @param taxaElitismo
+     */
+    public void setTaxaElitismo(double taxaElitismo) {
+        this.taxaElitismo = taxaElitismo;
+    }
+    
+    
+    /**
+     * 
+     * @return
+     */
+    public double getTaxaSelecao() {
+        return taxaSelecao;
+    }
+
+    /**
+     * 
+     * @param taxaSelecao
+     */
+    public void setTaxaSelecao(double taxaSelecao) {
+        this.taxaSelecao = taxaSelecao;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getTipoSelecao() {
+        return tipoSelecao;
+    }
+
+    /**
+     * 
+     * @param tipoSelecao
+     */
+    public void setTipoSelecao(String tipoSelecao) {
+        this.tipoSelecao = tipoSelecao;
+    }
+    
+    /**
+     * 
+     * @return
+     */
+    public int[] getPontosCorte() {
+        return this.pontosCorte;
     }
 
     /**
      * 
      * @param pontosCorte 
      */
-    public void setDoisPontosCorte(int[] pontosCorte) {
-        this.pontosCorte = new int[2];
-        this.pontosCorte[0] = pontosCorte[0];
-        this.pontosCorte[1] = pontosCorte[1];
+    public void setPontosCorte(int[] pontosCorte) {
+        this.pontosCorte = pontosCorte;
     }
 
     /**

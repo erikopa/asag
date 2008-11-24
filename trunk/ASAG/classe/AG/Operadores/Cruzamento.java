@@ -4,6 +4,7 @@
  */
 package AG.Operadores;
 
+import AG.Configuracoes.Configuracoes;
 import AG.Populacao.Populacao;
 import Interfaces.CromossomoAbstrato;
 import java.util.ArrayList;
@@ -15,6 +16,27 @@ import java.util.List;
  * @author Eriko Verissimo
  */
 public class Cruzamento{
+    
+    public static final int CRUZARUMPONTO = 0;
+    public static final int CRUZARDOISPONTOS = 1;
+    public static final int CRUZARNPONTOS = 3;
+    public static final int CRUZARMASCARA = 4;
+    
+    
+    
+    public static <T extends CromossomoAbstrato<T>> Populacao<T> Cruzar(int metodoCruzamento, Configuracoes parametros, Populacao<T> populacao) throws InstantiationException, ClassNotFoundException, IllegalAccessException{
+    
+        switch(metodoCruzamento){
+            case CRUZARUMPONTO : return CruzarUmPonto(parametros.getPontosCorte()[0], populacao);
+            case CRUZARDOISPONTOS : return CruzarDoisPontos(parametros.getPontosCorte()[0],parametros.getPontosCorte()[1], populacao);
+            case CRUZARNPONTOS : return CruzarNPontos(parametros.getQntPontosCorte(), populacao);
+            case CRUZARMASCARA : return CruzarMascara((T) parametros.getMascara(), populacao);
+            default :  return CruzarNPontos(parametros.getQntPontosCorte(), populacao);
+        }
+    }
+    
+    
+    
     /**
      * 
      * @param <T>

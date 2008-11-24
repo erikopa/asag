@@ -1,9 +1,11 @@
 package Interfaces;
 
+import java.util.ArrayList;
+
 /**
  * @author Eriko Verissimo
- * @version 1.0
- * @created 10-ago-2008 23:29:24
+ * @version 2.0
+ * @created 24-nov-2008 15:10:24
  */
 public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
 
@@ -79,6 +81,43 @@ public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
          * @param taxaElitismo
          */
         public void setElitismo(double taxaElitismo);
+        
+        /**
+         * 
+         * @param mascara
+         */
+        public void setMascara(CromossomoAbstrato mascara);
+        
+        /**
+         * 
+         * @param pontosCorte
+         */
+        public void setPontosCorte(int[] pontosCorte);
+        
+        /**
+         * 
+         * @param tipoCruzamento
+         */
+        public void setTipoCruzamento(String tipoCruzamento);
+        
+        /**
+         * 
+         * @param tipoMutacao
+         */
+        public void setTipoMutacao(String tipoMutacao);
+        
+        /**
+         * 
+         * @param alfabeto
+         */
+        public void setAlfabeto(ArrayList<Object> alfabeto);
+        
+        /**
+         * 
+         * @param tamGrupoTorneio
+         */
+        public void setTamanhoGrupoTorneio(int tamGrupoTorneio);
+        
         
 
 }
