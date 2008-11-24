@@ -4,9 +4,11 @@
  */
 package AG.Selecao;
 
+import AG.Configuracoes.Configuracoes;
 import AG.Populacao.Populacao;
 import Interfaces.CromossomoAbstrato;
 import java.util.Collections;
+
 
 /**
  *
@@ -14,6 +16,27 @@ import java.util.Collections;
  */
 public class Selecao {
 
+    
+    public static final int ROLETA = 0;
+    public static final int SUS = 1;
+    public static final int TORNEIO = 2;
+    
+    
+    
+    public static <T extends CromossomoAbstrato<T>> Populacao<T> Cruzar(int metodoSelecao,Configuracoes parametros,Populacao<T> populacao) throws InstantiationException, ClassNotFoundException, IllegalAccessException{
+    
+        switch(metodoSelecao){
+            case ROLETA : return Roleta(parametros.getTaxaSelecao(), populacao);
+            case SUS : return SUS(parametros.getTaxaSelecao(), populacao);
+            case TORNEIO : return Torneio(parametros.getTaxaSelecao(), parametros.getTamanhoGrupoTorneio(), populacao);
+            default :  return SUS(parametros.getTaxaSelecao(), populacao);
+        }
+    }
+    
+    
+    
+    
+    
     /**
      * 
      * @param <T>
@@ -103,14 +126,14 @@ public class Selecao {
      * 
      * @param <T>
      * @param populacao
-     * @param k quantidade de cromossomos para o torneio
+     * @param grupoTorneio quantidade de cromossomos para o torneio
      * @param taxaEscolhidos
      * @return
      * @throws InstantiationException
      * @throws ClassNotFoundException
      * @throws IllegalAccessException 
      */
-    public static <T extends CromossomoAbstrato<T>> Populacao<T> Torneio(double taxaEscolhidos, int k, Populacao<T> populacao) throws InstantiationException, ClassNotFoundException, IllegalAccessException {
+    public static <T extends CromossomoAbstrato<T>> Populacao<T> Torneio(double taxaEscolhidos, int grupoTorneio, Populacao<T> populacao) throws InstantiationException, ClassNotFoundException, IllegalAccessException {
 
         Populacao<T> poptemp = new Populacao<T>(populacao.getParametros(),true);
         Populacao<T> populacaoEscolhida = new Populacao<T>(populacao.getParametros(),true);
@@ -122,7 +145,7 @@ public class Selecao {
                 break;
             }
             int ponto = 0;
-            for (int i = 0; i < k; i++) {
+            for (int i = 0; i < grupoTorneio; i++) {
 
                 ponto = (int) (Math.random() * populacao.size());
                 if (poptemp.contains(populacao.get(ponto)) == false) {

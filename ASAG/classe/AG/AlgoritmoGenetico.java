@@ -6,6 +6,8 @@
 package AG;
 
 import AG.Configuracoes.Configuracoes;
+import Interfaces.CromossomoAbstrato;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +17,9 @@ public class AlgoritmoGenetico implements Interfaces.AlgoritmoGenetico{
 
     
     private Configuracoes parametros;
+    private String criterioParada;
+    private int numeroGeracoes;
+    private ArrayList<String> saida;
     /**
      * 
      */
@@ -33,83 +38,125 @@ public class AlgoritmoGenetico implements Interfaces.AlgoritmoGenetico{
     /**
      * 
      */
-    public void iniciarProcesso() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void iniciarProcesso(){
+        
+        
     }
+    
+    /**
+     * 
+     * @return Saida para Interface
+     */
+    public ArrayList<String> getSaida(){
+        return saida;
+    }
+    
     /**
      * 
      */ 
     public void setCriterioParada(String criterioParada) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.criterioParada = criterioParada; 
     }
     /**
      * 
      */
     public void setMetodoSelecao(String selecao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        parametros.setTipoSelecao(selecao);
     }
     /**
      * 
      */
     public void setNumGeracoes(int numGeracoes) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.numeroGeracoes = numGeracoes;
     }
     /**
      * 
      */
     public void setTamanhoCromossomo(int tamanhoCromossomo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        parametros.setTamanhoCromossomo(tamanhoCromossomo);
     }
     /**
      * 
      */
     public void setTamanhoPopulacao(int tamanhoPopulacao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        parametros.setTamanhoPopulacao(tamanhoPopulacao);
     }
     /**
      * 
      */
     public void setTaxaCruzamento(double taxaCruzamento) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        parametros.setTaxaCruzamento(taxaCruzamento);
     }
     /**
      * 
      */
     public void setTaxaMutacao(double taxaMutacao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        parametros.setTaxaMutacao(taxaMutacao);
     }
     /**
      * 
      * @param taxaSelecao 
      */
     public void setTaxaSelecao(double taxaSelecao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        parametros.setTaxaSelecao(taxaSelecao);
     }
     /**
      * 
      */
     public void setClasseCromossomo(String classecromossomo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        parametros.setClasseCromossomo(classecromossomo);
     }
     /**
      * 
      */
     public void setClasseFitness(String classefitness) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        parametros.setClasseFitness(classefitness);
     }
     /**
      * 
      */
     public void setElitismo(double taxaElitismo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        parametros.setTaxaElitismo(taxaElitismo);
+    }
+    /**
+     * 
+     */
+    public void setTaxaSelecao(int taxaSelecao) {
+        parametros.setTaxaSelecao(taxaSelecao);
+    }
+    /**
+     * 
+     */
+    public void setMascara(CromossomoAbstrato mascara) {
+        parametros.setMascara(mascara);
+    }
+    /**
+     * 
+     */
+    public void setPontosCorte(int[] pontosCorte) {
+        parametros.setPontosCorte(pontosCorte);
+    }
+    /**
+     * 
+     */
+    public void setTipoCruzamento(String tipoCruzamento) {
+        parametros.setTipoCruzamento(tipoCruzamento);
+    }
+    /**
+     * 
+     */
+    public void setTipoMutacao(String tipoMutacao) {
+        parametros.setTipoMutacao(tipoMutacao);
     }
 
-    public void setTaxaSelecao(int taxaSelecao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void setAlfabeto(ArrayList<Object> alfabeto) {
+        parametros.setAlfabeto(alfabeto);
+    }
+
+    public void setTamanhoGrupoTorneio(int tamGrupoTorneio) {
+        
     }
     
     
    
-
-
 }
