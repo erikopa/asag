@@ -23,7 +23,7 @@ public class Selecao {
     
     
     
-    public static <T extends CromossomoAbstrato<T>> Populacao<T> Cruzar(int metodoSelecao,Configuracoes parametros,Populacao<T> populacao) throws InstantiationException, ClassNotFoundException, IllegalAccessException{
+    public static <T extends CromossomoAbstrato<T>> Populacao<T> Selecionar(int metodoSelecao,Configuracoes parametros,Populacao<T> populacao) throws InstantiationException, ClassNotFoundException, IllegalAccessException{
     
         switch(metodoSelecao){
             case ROLETA : return Roleta(parametros.getTaxaSelecao(), populacao);
@@ -156,7 +156,7 @@ public class Selecao {
             }
             Collections.sort(poptemp);
             populacaoEscolhida.add((T) poptemp.get(0).clone());
-            poptemp = new Populacao<T>(populacao.getParametros(),false);
+            poptemp = new Populacao<T>(populacao.getParametros(),true);
 
         }
 

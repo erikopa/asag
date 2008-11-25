@@ -24,7 +24,7 @@ public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
 	 * 
 	 * @param selecao
 	 */
-	public void setMetodoSelecao(String selecao);
+	public void setTipoSelecao(int selecao);
 
 	/**
 	 * 
@@ -98,13 +98,13 @@ public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
          * 
          * @param tipoCruzamento
          */
-        public void setTipoCruzamento(String tipoCruzamento);
+        public void setTipoCruzamento(int tipoCruzamento);
         
         /**
          * 
          * @param tipoMutacao
          */
-        public void setTipoMutacao(String tipoMutacao);
+        public void setTipoMutacao(int tipoMutacao);
         
         /**
          * 

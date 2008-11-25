@@ -29,9 +29,9 @@ public class Cruzamento{
         switch(metodoCruzamento){
             case CRUZARUMPONTO : return CruzarUmPonto(parametros.getPontosCorte()[0], populacao);
             case CRUZARDOISPONTOS : return CruzarDoisPontos(parametros.getPontosCorte()[0],parametros.getPontosCorte()[1], populacao);
-            case CRUZARNPONTOS : return CruzarNPontos(parametros.getQntPontosCorte(), populacao);
+            case CRUZARNPONTOS : return CruzarNPontos(parametros.getPontosCorte(), populacao);
             case CRUZARMASCARA : return CruzarMascara((T) parametros.getMascara(), populacao);
-            default :  return CruzarNPontos(parametros.getQntPontosCorte(), populacao);
+            default :  return CruzarNPontos(parametros.getPontosCorte(), populacao);
         }
     }
     
@@ -102,7 +102,7 @@ public class Cruzamento{
      * @throws java.lang.ClassNotFoundException
      * @throws java.lang.IllegalAccessException
      */
-    public static <T extends CromossomoAbstrato<T>> Populacao<T> CruzarNPontos(int NumPontos, Populacao<T> ListaPais) throws InstantiationException, ClassNotFoundException, IllegalAccessException{
+    public static <T extends CromossomoAbstrato<T>> Populacao<T> CruzarNPontos(int[] NumPontos, Populacao<T> ListaPais) throws InstantiationException, ClassNotFoundException, IllegalAccessException{
         ArrayList<Integer> pontos = new ArrayList<Integer>();
         //Cria os cromossomos filhos e o cromossomo de cruzamento
         Populacao<T> pais = new Populacao<T>(ListaPais.getParametros(),true);
@@ -119,14 +119,15 @@ public class Cruzamento{
             filhos.get(i).clear();
 
         }
-        int ponto=0;
+        int contador=0;
         while(true){
-            ponto = (int)  (Math.random() * (pais.get(0).size()));
-            if(ponto != 0 && pontos.contains(ponto) != true )
-            pontos.add(ponto);
             
-            if(pontos.size() == NumPontos)
+            pontos.add(NumPontos[contador]);
+            
+            if(pontos.size() == NumPontos.length)
                 break;
+            
+            contador++;
         }
         
         Collections.sort(pontos);

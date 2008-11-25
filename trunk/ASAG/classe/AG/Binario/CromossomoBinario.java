@@ -22,10 +22,10 @@ public class CromossomoBinario extends CromossomoAbstrato<CromossomoBinario> {
     }
     
     @Override
-    public void geraCromossomo(int tamanho){
+    public CromossomoBinario geraCromossomo(int tamanho){
         this.tamanho = tamanho;
         criaCromossomoBinario();
-        
+        return this;
     }
     
     /**

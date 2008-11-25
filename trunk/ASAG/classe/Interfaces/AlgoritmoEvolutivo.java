@@ -14,7 +14,12 @@ public interface AlgoritmoEvolutivo {
 
         /**
          * 
+         * @param classeCromossomo 
+         * @param classeFitness 
+         * @throws ClassCastException
+         * @throws InstantiationException
+         * @throws IllegalAccessException 
          */
-        public void iniciarProcesso();
+        public void iniciarProcesso(String classeCromossomo,String classeFitness) throws ClassCastException,InstantiationException,IllegalAccessException;
 
 }

@@ -19,8 +19,10 @@ public abstract class CromossomoAbstrato<T> extends ArrayList implements Cromoss
     /**
      * 
      * @param tamanho
+     * @return 
      */
-    public void geraCromossomo(int tamanho){
+    public CromossomoAbstrato geraCromossomo(int tamanho){
+        return this;
     }
     
     

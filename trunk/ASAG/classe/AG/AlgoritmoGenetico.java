@@ -6,14 +6,22 @@
 package AG;
 
 import AG.Configuracoes.Configuracoes;
+import AG.Operadores.Cruzamento;
+import AG.Operadores.Mutacao;
+import AG.Populacao.Populacao;
+import AG.Selecao.Selecao;
 import Interfaces.CromossomoAbstrato;
+import Interfaces.FitnessAbstrato;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Eriko Verissimo
  */
-public class AlgoritmoGenetico implements Interfaces.AlgoritmoGenetico{
+public class AlgoritmoGenetico<T extends CromossomoAbstrato,J extends FitnessAbstrato> implements Interfaces.AlgoritmoGenetico{
 
     
     private Configuracoes parametros;
@@ -37,9 +45,89 @@ public class AlgoritmoGenetico implements Interfaces.AlgoritmoGenetico{
 
     /**
      * 
+     * @throws ClassCastException
+     * @throws InstantiationException 
      */
-    public void iniciarProcesso(){
+    public void iniciarProcesso(String classeCromossomo,String classeFitness) throws ClassCastException,InstantiationException,IllegalAccessException{
         
+       
+        T cromossomo;
+        J fitness;  
+        setClasseCromossomo(classeCromossomo);
+        setClasseFitness(classeFitness);
+            
+           
+        try {
+            
+            cromossomo = (T) Class.forName(parametros.getClasseCromossomo()).newInstance();
+            fitness = (J) Class.forName(parametros.getClasseFitness()).newInstance();
+            setMascara(cromossomo.geraCromossomo(parametros.getTamanhoCromossomo()));
+        
+            
+            Populacao<T> populacao =  new Populacao<T>(parametros,false);
+            Populacao<T> novaPopulacao =  new Populacao<T>(parametros,true);
+        
+            
+            for (int i = 0; i < parametros.getQntPontosCorte(); i++) {
+            
+            parametros.getPontosCorte()[i] = (int) Math.random()*(parametros.getTamanhoCromossomo()-1);
+            
+            }
+                
+                
+            int numGeracao = 0;
+            
+            populacao.Avalia(fitness);
+        
+            while (true) {
+
+            if (populacao.get(0).getFitness() == 1) {
+                break;
+            }
+
+            numGeracao++;
+            System.out.println("Avaliando Geração " + numGeracao);
+            
+            
+
+            novaPopulacao = Selecao.Selecionar(parametros.getTipoSelecao(), parametros, populacao);
+            novaPopulacao = Cruzamento.Cruzar(parametros.getTipoCruzamento(), parametros, novaPopulacao);
+            novaPopulacao = Mutacao.Mutar(parametros.getTipoMutacao(), parametros, novaPopulacao);
+
+            
+            novaPopulacao.Avalia(fitness);
+            
+            for (int i = 0; i < novaPopulacao.size(); i++) {
+
+                populacao.add((T) novaPopulacao.get(i).clone());
+
+            }
+
+            Collections.sort(populacao);
+
+            while (true) {
+                if (populacao.size() > parametros.getTamanhoPopulacao()) {
+                    populacao.remove(populacao.size() - 1);
+                } else {
+                    break;
+                }
+
+            }
+
+
+            System.out.println("Cromossomo: " + populacao.get(0).toString());
+            
+            
+            }
+            
+        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AlgoritmoGenetico.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex){
+            Logger.getLogger(AlgoritmoGenetico.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex){
+            Logger.getLogger(AlgoritmoGenetico.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
@@ -60,7 +148,7 @@ public class AlgoritmoGenetico implements Interfaces.AlgoritmoGenetico{
     /**
      * 
      */
-    public void setMetodoSelecao(String selecao) {
+    public void setTipoSelecao(int selecao) {
         parametros.setTipoSelecao(selecao);
     }
     /**
@@ -139,13 +227,13 @@ public class AlgoritmoGenetico implements Interfaces.AlgoritmoGenetico{
     /**
      * 
      */
-    public void setTipoCruzamento(String tipoCruzamento) {
+    public void setTipoCruzamento(int tipoCruzamento) {
         parametros.setTipoCruzamento(tipoCruzamento);
     }
     /**
      * 
      */
-    public void setTipoMutacao(String tipoMutacao) {
+    public void setTipoMutacao(int tipoMutacao) {
         parametros.setTipoMutacao(tipoMutacao);
     }
 

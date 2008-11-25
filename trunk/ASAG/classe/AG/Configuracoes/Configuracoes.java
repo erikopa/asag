@@ -26,9 +26,9 @@ public class Configuracoes extends Object implements Cloneable{
     private double taxaMutacao;
     private double taxaSelecao;
     private double taxaElitismo;
-    private String tipoCruzamento;
-    private String tipoMutacao;
-    private String tipoSelecao;
+    private int tipoCruzamento;
+    private int tipoMutacao;
+    private int tipoSelecao;
     private String classeCromossomo;
     private String classeFitness;
 
@@ -107,7 +107,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @return
      */
-    public String getTipoSelecao() {
+    public int getTipoSelecao() {
         return tipoSelecao;
     }
 
@@ -115,7 +115,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @param tipoSelecao
      */
-    public void setTipoSelecao(String tipoSelecao) {
+    public void setTipoSelecao(int tipoSelecao) {
         this.tipoSelecao = tipoSelecao;
     }
     
@@ -260,7 +260,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @return
      */
-    public String getTipoCruzamento() {
+    public int getTipoCruzamento() {
         return tipoCruzamento;
     }
 
@@ -268,7 +268,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @param tipoCruzamento
      */
-    public void setTipoCruzamento(String tipoCruzamento) {
+    public void setTipoCruzamento(int tipoCruzamento) {
         this.tipoCruzamento = tipoCruzamento;
     }
 
@@ -276,7 +276,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @return
      */
-    public String getTipoMutacao() {
+    public int getTipoMutacao() {
         return tipoMutacao;
     }
 
@@ -284,7 +284,7 @@ public class Configuracoes extends Object implements Cloneable{
      * 
      * @param tipoMutacao
      */
-    public void setTipoMutacao(String tipoMutacao) {
+    public void setTipoMutacao(int tipoMutacao) {
         this.tipoMutacao = tipoMutacao;
     }
     
