@@ -41,13 +41,13 @@ public class Selecao {
      * 
      * @param <T>
      * @param pop
-     * @param taxaEscolhidos
+     * @param taxaSelecao
      * @return
      * @throws InstantiationException
      * @throws ClassNotFoundException
      * @throws IllegalAccessException 
      */
-    public static <T extends CromossomoAbstrato<T>> Populacao<T> Roleta(double taxaEscolhidos, Populacao<T> pop) throws InstantiationException, ClassNotFoundException, IllegalAccessException {
+    public static <T extends CromossomoAbstrato<T>> Populacao<T> Roleta(double taxaSelecao, Populacao<T> pop) throws InstantiationException, ClassNotFoundException, IllegalAccessException {
 
 
         Populacao<T> populacao = new Populacao<T>(pop.getParametros(),true);
@@ -56,14 +56,14 @@ public class Selecao {
         int indiceEscolhido = 0;
         while (true) {
 
-            if (populacao.size() == (taxaEscolhidos * pop.size())) {
+            if (populacao.size() == (taxaSelecao * pop.getParametros().getTamanhoPopulacao())) {
                 break;
             }
             sorteio = (int) (Math.random() * (int) (pop.get(0).getFitnessRel() * 1000000000));
 
             fitnessEscolhido = (double) sorteio / 1000000000;
 
-            for (int i = pop.size() - 1; i >= 0; i--) {
+            for (int i = pop.getParametros().getTamanhoPopulacao() - 1; i >= 0; i--) {
                 if (pop.get(i).getFitnessRel() <= fitnessEscolhido) {
                     indiceEscolhido = i;
                 } else {
@@ -97,13 +97,13 @@ public class Selecao {
         int sorteio = 0;
         double fitnessEscolhido = 0;
         int indiceEscolhido = 0;
-        double agulha = pop.get(0).getFitnessRel() / (taxaEscolhidos * 100);
+        double agulha = Collections.max(pop).getFitnessRel() / (taxaEscolhidos * pop.getParametros().getTamanhoPopulacao());
         
-        sorteio = (int) (Math.random() * (int) (pop.get(0).getFitnessRel() * 1000000000));
+        sorteio = (int) (Math.random() * (int) (Collections.max(pop).getFitnessRel() * 1000000000));
 
         fitnessEscolhido = (double) sorteio / 1000000000;
 
-        for (int j = 0; j < (taxaEscolhidos * 100); j++) {
+        for (int j = 0; j < (taxaEscolhidos * pop.getParametros().getTamanhoPopulacao()); j++) {
 
             fitnessEscolhido = fitnessEscolhido + agulha;
 

@@ -21,19 +21,55 @@ public class Configuracoes extends Object implements Cloneable{
     private int tamanhoPopulacao;
     private int tamanhoCromossomo;
     private int tamanhoGrupoTorneio;
+    private int tipoCruzamento;
+    private int tipoMutacao;
+    private int tipoSelecao;
+    private int paradaNumeroGeracoes;
     private int[] pontosCorte;
+    private double paradaMelhorFitness;
     private double taxaCruzamento;
     private double taxaMutacao;
     private double taxaSelecao;
     private double taxaElitismo;
-    private int tipoCruzamento;
-    private int tipoMutacao;
-    private int tipoSelecao;
     private String classeCromossomo;
     private String classeFitness;
+    public static final int PARADAFITNESS = 0;
+    public static final int PARADAGERACAO = 1;
+    
+    
+    
+    
+    /**
+     * 
+     * @return
+     */
+    public double getParadaMelhorFitness() {
+        return paradaMelhorFitness;
+    }
 
-    
-    
+    /**
+     * 
+     * @param paradaMelhorFitness
+     */
+    public void setParadaMelhorFitness(double paradaMelhorFitness) {
+        this.paradaMelhorFitness = paradaMelhorFitness;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public int getParadaNumeroGeracoes() {
+        return paradaNumeroGeracoes;
+    }
+
+    /**
+     * 
+     * @param paradaNumeroGeracoes
+     */
+    public void setParadaNumeroGeracoes(int paradaNumeroGeracoes) {
+        this.paradaNumeroGeracoes = paradaNumeroGeracoes;
+    }
     
     
     /**

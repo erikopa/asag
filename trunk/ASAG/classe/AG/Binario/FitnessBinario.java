@@ -27,7 +27,8 @@ public class FitnessBinario extends FitnessAbstrato<CromossomoBinario>{
         
         for (int i = 0; i < populacao.size(); i++) {
                         
-            temp = (double)(Long.parseLong(populacao.get(i).toString(),2))/(Math.pow(2, populacao.get(i).size())-1);
+            temp = (double) Math.abs(Long.parseLong(populacao.get(i).toString(),2)-(double) populacao.getParametros().getParadaMelhorFitness());
+            //temp  += (double)populacao.getParametros().getParadaMelhorFitness();
             populacao.get(i).setFitness(temp);
             temprel += temp;
         }
