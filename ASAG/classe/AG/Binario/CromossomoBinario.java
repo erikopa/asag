@@ -54,7 +54,12 @@ public class CromossomoBinario extends CromossomoAbstrato<CromossomoBinario> {
      */
     @Override
     public int compareTo(CromossomoBinario o) {
-        return (int) (o.getFitness()*1000000) - (int) (this.getFitness()*1000000);
+        if(o.getFitness()<=this.getFitness()){
+            return 0;
+        }else{
+            return 1;
+        }
+        //return (int) (o.getFitness()*1000000) - (int) (this.getFitness()*1000000);
     }
 
 }

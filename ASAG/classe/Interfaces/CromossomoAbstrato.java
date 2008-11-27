@@ -80,7 +80,9 @@ public abstract class CromossomoAbstrato<T> extends ArrayList implements Cromoss
         return true;
     }
 
-    
+    public ArrayList getAlfabeto(){
+    return new ArrayList();
+    }
 
     /**
      * Retorna o Cromossomo

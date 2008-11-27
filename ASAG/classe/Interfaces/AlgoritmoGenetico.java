@@ -16,7 +16,7 @@ public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
 	 * 
 	 * @param criterioParada
 	 */
-	public void setCriterioParada(String criterioParada);
+	public void setCriterioParada(int criterioParada);
 
 	
 	/**
@@ -30,7 +30,7 @@ public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
 	 * 
 	 * @param numGeracoes
 	 */
-	public void setNumGeracoes(int numGeracoes);
+	public void setParadaGeracoes(int numGeracoes);
 
 	/**
 	 * 
@@ -110,7 +110,7 @@ public interface AlgoritmoGenetico extends AlgoritmoEvolutivo {
          * 
          * @param alfabeto
          */
-        public void setAlfabeto(ArrayList<Object> alfabeto);
+        public void setAlfabeto(ArrayList alfabeto);
         
         /**
          * 
