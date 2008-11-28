@@ -139,24 +139,22 @@ public class Selecao {
         Populacao<T> populacaoEscolhida = new Populacao<T>(populacao.getParametros(),true);
 
 
-        while (true) {
+        while (taxaEscolhidos > (double) populacaoEscolhida.size() / (double) populacao.size()) {
 
-            if (taxaEscolhidos <= (double) populacaoEscolhida.size() / (double) populacao.size()) {
-                break;
-            }
+            
             int ponto = 0;
             for (int i = 0; i < grupoTorneio; i++) {
 
                 ponto = (int) (Math.random() * populacao.size());
                 if (poptemp.contains(populacao.get(ponto)) == false) {
-                    poptemp.add(populacao.get(ponto));
+                    poptemp.add((T)populacao.get(ponto).clone());
                 } else {
                     i--;
                 }
             }
-            Collections.sort(poptemp);
-            populacaoEscolhida.add((T) poptemp.get(0).clone());
-            poptemp = new Populacao<T>(populacao.getParametros(),true);
+            //Collections.sort(poptemp);
+            populacaoEscolhida.add((T) Collections.max(poptemp).clone());
+            poptemp.clear();
 
         }
 
