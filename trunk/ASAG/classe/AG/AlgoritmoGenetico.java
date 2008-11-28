@@ -292,9 +292,10 @@ public class AlgoritmoGenetico<T extends CromossomoAbstrato, J extends FitnessAb
     }
 
     public void setTamanhoGrupoTorneio(int tamGrupoTorneio) {
+        parametros.setTamanhoGrupoTorneio(tamGrupoTorneio);
     }
 
-    public void setParadaFitness(double fitness) {
+    public void setFitnessObjetivo(double fitness) {
         parametros.setParadaMelhorFitness(fitness);
     }
 }
