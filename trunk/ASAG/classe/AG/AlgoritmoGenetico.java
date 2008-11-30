@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import AG.Configuracoes.CriterioParada;
+import AG.Elitismo.Elitismo;
 
 /**
  *
@@ -114,13 +115,13 @@ public class AlgoritmoGenetico<T extends CromossomoAbstrato, J extends FitnessAb
                 novaPopulacao = Mutacao.Mutar(parametros.getTipoMutacao(), parametros, novaPopulacao);
 
 
-
+                tempPopulacao.addAll(Elitismo.Elitismo(parametros.getTaxaElitismo(), populacao));
                 //Execução de elitismo
-                while (parametros.getTaxaElitismo() > ((double) tempPopulacao.size() / (double) parametros.getTamanhoPopulacao())) {
-                    
-                    tempPopulacao.add((T) Collections.max(populacao).clone());
-                    populacao.remove((T) Collections.max(populacao));
-                }
+//                while (parametros.getTaxaElitismo() > ((double) tempPopulacao.size() / (double) parametros.getTamanhoPopulacao())) {
+//                    
+//                    tempPopulacao.add((T) Collections.max(populacao).clone());
+//                    populacao.remove((T) Collections.max(populacao));
+//                }
               
 
                 tempPopulacao.addAll((Populacao<T>) novaPopulacao.clone());

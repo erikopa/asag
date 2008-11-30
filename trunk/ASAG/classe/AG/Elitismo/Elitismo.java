@@ -7,6 +7,7 @@ package AG.Elitismo;
 
 import AG.Populacao.Populacao;
 import Interfaces.CromossomoAbstrato;
+import java.util.Collections;
 
 /**
  *
@@ -21,19 +22,17 @@ public class Elitismo {
      * @param populacao 
      * @return
      */
-    public static <T extends CromossomoAbstrato<T>> Populacao<T> Elitismo(double taxaElitismo, Populacao<T> populacao){
+    public static <T extends CromossomoAbstrato<T>> Populacao<T> Elitismo(double taxaElitismo, Populacao<T> populacao) throws InstantiationException, ClassNotFoundException, IllegalAccessException{
     
-//        int j = 0;
-//                while (true) {
-//                    if (populacao.getParametros().getTaxaElitismo() <= ((double) tempPopulacao.size() / (double) parametros.getTamanhoPopulacao())) {
-//                        break;
-//                    }
-//                    tempPopulacao.add((T) Collections.max(populacao).clone());
-//                    populacao.remove((T) Collections.max(populacao));
-//                    j++;
-//                }
-//        
-        return populacao;
+        
+        Populacao<T> tempPopulacao = new Populacao<T>(populacao.getParametros(), true);
+
+        while (populacao.getParametros().getTaxaElitismo() > ((double) tempPopulacao.size() / (double) populacao.getParametros().getTamanhoPopulacao())) {
+                    
+                    tempPopulacao.add((T) Collections.max(populacao).clone());
+                    populacao.remove((T) Collections.max(populacao));
+                }
+        return tempPopulacao;
         
     }
     
