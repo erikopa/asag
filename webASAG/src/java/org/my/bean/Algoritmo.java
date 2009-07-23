@@ -33,31 +33,33 @@ public class Algoritmo {
 
     public List<SelectItem> getCruzamentos() {
         List<SelectItem> tiposCruzamentos = new ArrayList<SelectItem>();
-        tiposCruzamentos.add(new SelectItem(Cruzamento.CRUZARDOISPONTOS, "cruzar dois pontos"));
-        tiposCruzamentos.add(new SelectItem(Cruzamento.CRUZARMASCARA, "cruzar mascara"));
-        tiposCruzamentos.add(new SelectItem(Cruzamento.CRUZARNPONTOS, "cruzar n pontos"));
-        tiposCruzamentos.add(new SelectItem(Cruzamento.CRUZARUMPONTO, "cruzar um ponto"));
+        tiposCruzamentos.add(new SelectItem(Cruzamento.CRUZARUMPONTO, "Um Ponto"));
+        tiposCruzamentos.add(new SelectItem(Cruzamento.CRUZARDOISPONTOS, "Dois Pontos"));
+        tiposCruzamentos.add(new SelectItem(Cruzamento.CRUZARNPONTOS, "N Pontos"));
+        tiposCruzamentos.add(new SelectItem(Cruzamento.CRUZARMASCARA, "Mascara"));
+        
+        
         return tiposCruzamentos;
     }
 
     public List<SelectItem> getSelecao() {
         List<SelectItem> tipoSelecao = new ArrayList<SelectItem>();
-        tipoSelecao.add(new SelectItem(Selecao.ROLETA, "roleta"));
+        tipoSelecao.add(new SelectItem(Selecao.ROLETA, "Roleta"));
         tipoSelecao.add(new SelectItem(Selecao.SUS, "SUS"));
-        tipoSelecao.add(new SelectItem(Selecao.TORNEIO, "torneio"));
+        tipoSelecao.add(new SelectItem(Selecao.TORNEIO, "Torneio"));
         return tipoSelecao;
     }
 
     public List<SelectItem> getMutacao() {
         List<SelectItem> tipoMutacao = new ArrayList<SelectItem>();
-        tipoMutacao.add(new SelectItem(Mutacao.MUTARBINARIO, "mutar binário"));
+        tipoMutacao.add(new SelectItem(Mutacao.MUTARBINARIO, "Mutar Binário"));
         return tipoMutacao;
     }
 
     public List<SelectItem> getBoolean() {
         List<SelectItem> listBoolean = new ArrayList<SelectItem>();
-        listBoolean.add(new SelectItem(true, "sim"));
-        listBoolean.add(new SelectItem(false, "não"));
+        listBoolean.add(new SelectItem(true, "Sim"));
+        listBoolean.add(new SelectItem(false, "Não"));
         return listBoolean;
     }
 
