@@ -299,4 +299,12 @@ public class AlgoritmoGenetico<T extends CromossomoAbstrato, J extends FitnessAb
     public void setFitnessObjetivo(double fitness) {
         parametros.setParadaMelhorFitness(fitness);
     }
+
+    public Configuracoes getParametros() {
+        return parametros;
+    }
+
+    public void setParametros(Configuracoes parametros) {
+        this.parametros = parametros;
+    }
 }
